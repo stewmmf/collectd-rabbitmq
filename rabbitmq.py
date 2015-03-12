@@ -108,6 +108,8 @@ def dispatch_values(values, host, plugin, plugin_instance, metric_type,
     if type_instance:
         metric.type_instance = type_instance
     metric.values = values
+    # https://github.com/collectd/collectd/issues/716
+    metric.meta = {0: True}
     metric.dispatch()
 
 
